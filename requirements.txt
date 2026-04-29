@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+pyodbc
+python-dotenv
+azure-servicebus
+pytest
+httpx
+flake8

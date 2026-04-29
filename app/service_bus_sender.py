@@ -2,6 +2,7 @@ import os
 import json
 from dotenv import load_dotenv
 from azure.servicebus import ServiceBusClient, ServiceBusMessage
+from app.logger import logger
 
 load_dotenv()
 
@@ -17,4 +18,4 @@ def send_message(data: dict):
             message = ServiceBusMessage(json.dumps(data))
             sender.send_messages(message)
 
-    print("Message sent to Azure Service Bus")
+    logger.info("Message sent to Azure Service Bus")
