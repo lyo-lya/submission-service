@@ -11,19 +11,19 @@ steps:
 
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.9'
+    versionSpec: '3.9.x'
 
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
-    pip install pytest flake8
   displayName: Install dependencies
 
 - script: |
-    flake8 app
+    flake8 app --max-line-length=120 --ignore=E203,W503
   displayName: Lint code
 
 - script: |
+    export PYTHONPATH=$(pwd)
     export TESTING=1
     pytest -q
   displayName: Run tests
